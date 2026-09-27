@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusExam AI - College Examination FAQ Chatbot</title>
+  <meta name="description" content="A practical Artificial Intelligence assignment: College FAQ Chatbot using Natural Language Processing, TF-IDF Vectorization, and Cosine Similarity.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <!-- Header Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand-group">
+        <div class="brand-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+          </svg>
+        </div>
+        <div class="brand-titles">
+          <div class="brand-row">
+            <h1 class="brand-name">CampusExam AI</h1>
+            <span class="badge-status"><span class="status-dot"></span> Offline NLP Engine</span>
+          </div>
+          <p class="brand-subtitle">AI-Powered Examination Helpdesk & FAQ Assistant</p>
+        </div>
+      </div>
+
+      <nav class="header-actions">
+        <button id="btnHowItWorks" class="header-btn" title="View NLP Architecture">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+          <span>How It Works</span>
+        </button>
+        <button id="btnFaqDirectory" class="header-btn" title="Browse all 30+ FAQ Topics">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+          <span>FAQ Topics (32)</span>
+        </button>
+        <button id="btnVivaGuide" class="header-btn" title="Viva Prep & Project Info">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          <span>Viva Q&A</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="chat-wrapper">
+    <div class="chat-card">
+      
+      <!-- Chat Subheader / Quick Controls -->
+      <div class="chat-topbar">
+        <div class="topbar-info">
+          <span class="active-category-pill">Category: College Examinations</span>
+          <span class="model-pill">TF-IDF + Cosine Similarity</span>
+        </div>
+        <div class="topbar-actions">
+          <button id="btnClearChat" class="action-btn text-btn" title="Clear Conversation">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="3 6 5 6 21 6"></polyline>
+              <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+            </svg>
+            <span>Clear Chat</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Scrollable Message Conversation Stream -->
+      <section class="chat-messages" id="chatMessages" aria-live="polite">
+        
+        <!-- Welcome Hero Banner Message -->
+        <div class="message-row bot-row welcome-message-row">
+          <div class="avatar bot-avatar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2 2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/>
+              <rect x="4" y="8" width="16" height="12" rx="2"/>
+              <circle cx="9" cy="13" r="1.5" fill="currentColor"/>
+              <circle cx="15" cy="13" r="1.5" fill="currentColor"/>
+              <path d="M9 17h6"/>
+            </svg>
+          </div>
+          <div class="message-content-wrapper">
+            <div class="bubble bot-bubble welcome-bubble">
+              <div class="welcome-header">
+                <h3>👋 Hello! Welcome to CampusExam AI</h3>
+                <span class="tag-academic">AI Practical Project</span>
+              </div>
+              <p>I am your natural language assistant for college <strong>examination queries</strong>. I use <em>TF-IDF Vectorization</em> and <em>Cosine Similarity</em> to understand your questions semantically.</p>
+              
+              <div class="disclaimer-banner">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                <span><strong>Note:</strong> Responses provide generalized academic guidelines. Please refer to official notifications for institution-specific dates.</span>
+              </div>
+
+              <div class="suggested-header">Popular Exam Questions:</div>
+              <div class="quick-chips-grid">
+                <button class="chip-btn" data-query="When are the semester exams?">🗓️ Semester Exam Dates</button>
+                <button class="chip-btn" data-query="Where can I get my hall ticket?">🎫 Hall Ticket / Admit Card</button>
+                <button class="chip-btn" data-query="What is the attendance requirement?">📊 75% Attendance Rule</button>
+                <button class="chip-btn" data-query="How can I apply for revaluation?">📝 Revaluation Process</button>
+                <button class="chip-btn" data-query="When will the results be published?">🏆 Semester Results</button>
+                <button class="chip-btn" data-query="What should I bring to the exam hall?">✏️ Required Stationery</button>
+                <button class="chip-btn" data-query="Can I use a calculator in exams?">🔢 Calculator Policy</button>
+                <button class="chip-btn" data-query="What happens if I miss an exam?">⚠️ Missed Exam / Absence</button>
+              </div>
+            </div>
+            <span class="message-time">Just now</span>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Typing Indicator -->
+      <div class="typing-indicator-row" id="typingIndicator" style="display: none;">
+        <div class="avatar bot-avatar typing-avatar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2 2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/>
+            <rect x="4" y="8" width="16" height="12" rx="2"/>
+          </svg>
+        </div>
+        <div class="typing-bubble">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="typing-text">CampusExam AI is computing TF-IDF vectors...</span>
+        </div>
+      </div>
+
+      <!-- Quick Topic Strip Above Input -->
+      <div class="quick-topics-strip" id="quickTopicsStrip">
+        <span class="strip-label">Quick Topics:</span>
+        <button class="strip-btn" data-query="When are the semester exams?">Exam Dates</button>
+        <button class="strip-btn" data-query="Where can I get my hall ticket?">Hall Ticket</button>
+        <button class="strip-btn" data-query="When will the results be published?">Results</button>
+        <button class="strip-btn" data-query="How can I apply for revaluation?">Revaluation</button>
+        <button class="strip-btn" data-query="What is the attendance requirement?">Attendance</button>
+        <button class="strip-btn" data-query="What electronic gadgets are banned in exam?">Exam Rules</button>
+        <button class="strip-btn" data-query="Can I use a calculator in exams?">Calculators</button>
+        <button class="strip-btn" data-query="When are supplementary exams conducted?">Supplementary</button>
+      </div>
+
+      <!-- Chat Input Area -->
+      <form class="chat-input-form" id="chatForm">
+        <div class="input-container">
+          <textarea 
+            id="userInput" 
+            class="user-input-box" 
+            placeholder="Type your exam question (e.g. 'When are end semester exams?', 'How to apply for reval?')..." 
+            rows="1" 
+            maxlength="400"
+            required></textarea>
+          
+          <div class="input-buttons-group">
+            <button type="submit" id="btnSend" class="send-btn" title="Send Question (Enter)">
+              <span>Send</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="input-footer-note">
+          <span>Press <strong>Enter</strong> to send &bull; <strong>Shift + Enter</strong> for a new line</span>
+          <span id="charCount" class="char-counter">0 / 400</span>
+        </div>
+      </form>
+
+    </div>
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: HOW IT WORKS (NLP PIPELINE EXPLANATION)                            -->
+  <!-- ========================================================================= -->
+  <div class="modal-overlay" id="modalHowItWorks">
+    <div class="modal-box modal-large">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <div class="modal-icon-badge">🧠</div>
+          <div>
+            <h2>How It Works: NLP & AI Architecture</h2>
+            <p>Step-by-step Artificial Intelligence pipeline explained for B.Tech students</p>
+          </div>
+        </div>
+        <button class="modal-close" data-close="modalHowItWorks">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Visual Flowchart -->
+        <div class="pipeline-flowchart">
+          <div class="flow-step">
+            <div class="step-badge">1</div>
+            <div class="step-card">
+              <h4>User Question</h4>
+              <p>"when are sem exams?"</p>
+            </div>
+          </div>
+          <div class="flow-arrow">↓</div>
+
+          <div class="flow-step">
+            <div class="step-badge">2</div>
+            <div class="step-card">
+              <h4>Text Preprocessing</h4>
+              <p>Lowercasing, Slang mapping (sem &rarr; semester), Stopword filtering</p>
+            </div>
+          </div>
+          <div class="flow-arrow">↓</div>
+
+          <div class="flow-step">
+            <div class="step-badge">3</div>
+            <div class="step-card">
+              <h4>TF-IDF Vectorization</h4>
+              <p>Converts words into numerical sparse vectors based on term frequency & IDF weights</p>
+            </div>
+          </div>
+          <div class="flow-arrow">↓</div>
+
+          <div class="flow-step">
+            <div class="step-badge">4</div>
+            <div class="step-card">
+              <h4>Cosine Similarity</h4>
+              <p>Calculates dot product cosine angle between question vector and FAQ corpus</p>
+            </div>
+          </div>
+          <div class="flow-arrow">↓</div>
+
+          <div class="flow-step">
+            <div class="step-badge">5</div>
+            <div class="step-card">
+              <h4>Intent Detection</h4>
+              <p>Matches highest scoring intent (e.g. <code>exam_schedule</code>, Confidence: 88%)</p>
+            </div>
+          </div>
+          <div class="flow-arrow">↓</div>
+
+          <div class="flow-step">
+            <div class="step-badge">6</div>
+            <div class="step-card highlight-step">
+              <h4>Chatbot Response</h4>
+              <p>Returns verified examination guidance with confidence score and topic chips</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulas & Academic Math -->
+        <div class="academic-math-grid">
+          <div class="math-card">
+            <h4>1. Term Frequency (TF)</h4>
+            <div class="formula-box">TF(t, d) = 1 + log(count(t, d))</div>
+            <p>Measures how frequently term <em>t</em> occurs in document <em>d</em>.</p>
+          </div>
+          <div class="math-card">
+            <h4>2. Inverse Document Frequency (IDF)</h4>
+            <div class="formula-box">IDF(t) = log((1 + N) / (1 + DF(t))) + 1</div>
+            <p>Weights down common general words and boosts unique examination terms.</p>
+          </div>
+          <div class="math-card">
+            <h4>3. Cosine Similarity Metric</h4>
+            <div class="formula-box">CosineSim(u, v) = (u · v) / (||u|| * ||v||)</div>
+            <p>Computes the geometric angle between normalized vector spaces regardless of document length.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-close="modalHowItWorks">Got It!</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: FAQ DIRECTORY (32 EXAMINATION TOPICS)                              -->
+  <!-- ========================================================================= -->
+  <div class="modal-overlay" id="modalFaqDirectory">
+    <div class="modal-box modal-large">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <div class="modal-icon-badge">📚</div>
+          <div>
+            <h2>Examination FAQ Knowledge Base (32 Topics)</h2>
+            <p>Click any question below to ask CampusExam AI immediately</p>
+          </div>
+        </div>
+        <button class="modal-close" data-close="modalFaqDirectory">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="faq-search-wrapper">
+          <input type="text" id="faqSearchInput" class="faq-search-bar" placeholder="Search examination questions or topics (e.g. hall ticket, calculator, arrears)...">
+        </div>
+        <div class="faq-accordion-container" id="faqAccordionList">
+          <div class="loading-spinner-box">Loading FAQ Knowledge Base...</div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-close="modalFaqDirectory">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: VIVA PREPARATION GUIDE                                             -->
+  <!-- ========================================================================= -->
+  <div class="modal-overlay" id="modalVivaGuide">
+    <div class="modal-box modal-large">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <div class="modal-icon-badge">🎓</div>
+          <div>
+            <h2>Viva Voce Q&A Preparation</h2>
+            <p>10 common external examiner questions with concise student answers</p>
+          </div>
+        </div>
+        <button class="modal-close" data-close="modalVivaGuide">&times;</button>
+      </div>
+
+      <div class="modal-body viva-content">
+        <div class="viva-qa-item">
+          <h4>Q1: What is the main objective of this College FAQ Chatbot?</h4>
+          <p><strong>Answer:</strong> To provide a lightweight, responsive, and offline AI-driven assistant that answers student queries regarding semester examinations, hall tickets, results, and rules using NLP instead of rigid keyword matching.</p>
+        </div>
+
+        <div class="viva-qa-item">
+          <h4>Q2: Why did you choose TF-IDF + Cosine Similarity over simple if-else matching?</h4>
+          <p><strong>Answer:</strong> If-else statements fail if the student writes variations (e.g. "when are sem exams?" vs "tell me exam dates"). TF-IDF maps phrases into a vector space where cosine similarity measures semantic closeness, allowing flexible natural phrasing.</p>
+        </div>
+
+        <div class="viva-qa-item">
+          <h4>Q3: What preprocessing steps are applied to the user's input?</h4>
+          <p><strong>Answer:</strong> Lowercasing, punctuation stripping, domain slang/abbreviation expansion (e.g., 'sem' &rarr; 'semester', 'reval' &rarr; 'revaluation'), tokenization, and stopword removal.</p>
+        </div>
+
+        <div class="viva-qa-item">
+          <h4>Q4: How does TF-IDF calculate word importance?</h4>
+          <p><strong>Answer:</strong> TF (Term Frequency) measures how often a word appears in a query, while IDF (Inverse Document Frequency) reduces the weight of ubiquitous words and gives high weights to discriminative words like 'revaluation' or 'calculator'.</p>
+        </div>
+
+        <div class="viva-qa-item">
+          <h4>Q5: What is Cosine Similarity and what is its range?</h4>
+          <p><strong>Answer:</strong> It is the dot product of two normalized vectors, representing the cosine of the angle between them. Its value ranges from 0 (completely orthogonal/unrelated) to 1 (identical vector direction).</p>
+        </div>
+
+        <div class="viva-qa-item">
+          <h4>Q6: How do you handle out-of-scope or gibberish questions?</h4>
+          <p><strong>Answer:</strong> We enforce a confidence threshold (0.22). If the maximum cosine similarity across all patterns is below this threshold, a graceful fallback message is triggered prompting the student with supported exam topics.</p>
+        </div>
+
+        <div class="viva-qa-item">
+          <h4>Q7: What is the purpose of N-grams in your vectorizer?</h4>
+          <p><strong>Answer:</strong> We use unigrams and bigrams (1, 2) to preserve word pairings such as "hall ticket", "internal exam", and "passing criteria", which have distinct meanings compared to isolated individual words.</p>
+        </div>
+
+        <div class="viva-qa-item">
+          <h4>Q8: Does this application require an active internet connection or paid API key?</h4>
+          <p><strong>Answer:</strong> No. The system runs completely locally and offline using Python Flask and Scikit-Learn without depending on OpenAI, Gemini, or any paid cloud APIs.</p>
+        </div>
+
+        <div class="viva-qa-item">
+          <h4>Q9: How is the FAQ dataset structured?</h4>
+          <p><strong>Answer:</strong> The dataset is stored as a JSON object containing 32 distinct examination intents, each with an intent name, category, multiple training patterns/variations, a verified response, and contextual quick suggestion chips.</p>
+        </div>
+
+        <div class="viva-qa-item">
+          <h4>Q10: What are the limitations and future enhancements?</h4>
+          <p><strong>Answer:</strong> Current limitations include closed-domain coverage and no multi-turn context memory. Future enhancements include integrating BERT/Sentence-Transformers, multi-language support, and direct integration with college ERP databases for live personal grades.</p>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-close="modalVivaGuide">Close Viva Guide</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Application Entry -->
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

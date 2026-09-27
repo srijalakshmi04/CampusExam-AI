@@ -1,0 +1,466 @@
+{
+  "intents": [
+    {
+      "intent": "exam_schedule",
+      "category": "Dates & Timetable",
+      "patterns": [
+        "when are the semester exams",
+        "semester exam date",
+        "when is my sem exam",
+        "tell me exam dates",
+        "when will final exams start",
+        "exam schedule for this semester",
+        "when do university examinations begin",
+        "end sem exam commencement date",
+        "what is the date of semester examination"
+      ],
+      "answer": "The semester examination dates are officially published in the college academic calendar and examination schedule notification. Generally, odd semester exams are conducted in November/December and even semester exams in April/May. Please check the latest notification on the college notice board or student portal for exact dates.",
+      "quick_chips": ["Exam Timetable", "Hall Ticket", "Exam Rules"]
+    },
+    {
+      "intent": "internal_exam",
+      "category": "Internal Assessment",
+      "patterns": [
+        "when are internal exams conducted",
+        "mid term exam dates",
+        "how many internal tests are there",
+        "internal assessment test schedule",
+        "what is the syllabus for internal exam",
+        "unit test dates",
+        "continuous assessment test CIA schedule",
+        "internal exam timing"
+      ],
+      "answer": "Most colleges conduct 2 to 3 Internal Assessment Tests (Mid-terms/Unit Tests) per semester. The schedule and syllabus are released by your respective academic departments at least one week prior to the tests.",
+      "quick_chips": ["Internal Marks", "Attendance", "Exam Schedule"]
+    },
+    {
+      "intent": "end_sem_exam",
+      "category": "Dates & Timetable",
+      "patterns": [
+        "what is end semester examination",
+        "end sem theory exam details",
+        "how are end semester exams conducted",
+        "final semester university exam information",
+        "end semester exam format"
+      ],
+      "answer": "End-semester examinations are the comprehensive university/college theory exams held at the conclusion of each semester, covering the full course syllabus as prescribed in the curriculum.",
+      "quick_chips": ["Exam Schedule", "Passing Criteria", "Exam Timetable"]
+    },
+    {
+      "intent": "exam_timetable",
+      "category": "Dates & Timetable",
+      "patterns": [
+        "where can I get the exam timetable",
+        "exam timetable pdf download",
+        "how to check exam routine",
+        "has the examination timetable been released",
+        "exam date sheet for all branches",
+        "forenoon and afternoon exam session timings",
+        "where to download date sheet"
+      ],
+      "answer": "The examination timetable is available on the college examination portal and department notice boards. It contains subject-wise dates, session timings (Forenoon: usually 9:30 AM - 12:30 PM, Afternoon: 1:30 PM - 4:30 PM), and subject codes.",
+      "quick_chips": ["Exam Schedule", "Hall Ticket", "Reporting Time"]
+    },
+    {
+      "intent": "exam_hall",
+      "category": "Exam Day Logistics",
+      "patterns": [
+        "how to find my exam hall",
+        "where is my examination room",
+        "how to check seating arrangement",
+        "seating allotment for today exam",
+        "where will exam room numbers be displayed",
+        "which room is my exam in",
+        "exam hall seating chart"
+      ],
+      "answer": "Exam hall and seating arrangements are displayed on the central examination notice board and near the main entrance at least 45 minutes before the start of each examination session. Seating is arranged according to student register/roll numbers.",
+      "quick_chips": ["Reporting Time", "Hall Ticket", "Exam Rules"]
+    },
+    {
+      "intent": "hall_ticket",
+      "category": "Admit Card & Registration",
+      "patterns": [
+        "where can I get my hall ticket",
+        "how to download admit card",
+        "hall ticket distribution date",
+        "when will hall tickets be issued",
+        "is hall ticket mandatory for writing exams",
+        "how do I get my exam admit card",
+        "can I download hall ticket online",
+        "where to collect hall ticket from college"
+      ],
+      "answer": "Hall tickets (Admit Cards) can be downloaded from the student portal or collected from your department office a few days before exams commence. Carrying the original printed hall ticket along with your college ID card is strictly mandatory for every exam.",
+      "quick_chips": ["Duplicate Docs", "Eligibility", "Exam Rules"]
+    },
+    {
+      "intent": "exam_registration",
+      "category": "Admit Card & Registration",
+      "patterns": [
+        "how to register for semester examination",
+        "exam form fill up process",
+        "last date for exam registration",
+        "how to apply for regular exams",
+        "exam application form submission",
+        "steps to fill semester exam form"
+      ],
+      "answer": "Exam registration is completed through the college Enterprise Resource Planning (ERP) or examination portal. Students must verify their registered subjects, pay the prescribed exam fee, and submit the printed confirmation form to the department before the announced deadline.",
+      "quick_chips": ["Exam Fee", "Eligibility", "Hall Ticket"]
+    },
+    {
+      "intent": "exam_fee",
+      "category": "Admit Card & Registration",
+      "patterns": [
+        "what is the exam fee",
+        "how to pay examination fee",
+        "last date to pay exam fees",
+        "exam fee payment online link",
+        "what is the fine for late exam fee payment",
+        "fee per theory subject and practical paper",
+        "examination fee structure"
+      ],
+      "answer": "Examination fees vary by regulation and number of theory/practical courses registered. Payments are accepted online via the student fee portal. Late payments may attract a penalty fine as per examination cell guidelines.",
+      "quick_chips": ["Exam Registration", "Supplementary Exam", "Exam Cell Contact"]
+    },
+    {
+      "intent": "attendance",
+      "category": "Eligibility & Rules",
+      "patterns": [
+        "what is the attendance requirement",
+        "how much attendance is needed for exams",
+        "can I write exam if attendance is low",
+        "minimum percentage of attendance required",
+        "is 75 percent attendance compulsory",
+        "attendance criteria for appearing in exam",
+        "what if my attendance is below 75 percent",
+        "can low attendance student attend exams"
+      ],
+      "answer": "Students are required to maintain a minimum of 75% aggregate attendance in each subject to be eligible for semester examinations. Students having attendance between 65% and 74% due to medical or approved reasons may apply for condonation with appropriate documents.",
+      "quick_chips": ["Eligibility", "Medical Leave", "Exam Cell Contact"]
+    },
+    {
+      "intent": "eligibility",
+      "category": "Eligibility & Rules",
+      "patterns": [
+        "what are the eligibility criteria for semester exams",
+        "am I eligible to write the exam",
+        "exam eligibility rules",
+        "who is allowed to sit for semester examinations",
+        "conditions for appearing in final exams",
+        "criteria to appear for end semester exam"
+      ],
+      "answer": "To be eligible for semester examinations, a student must: (1) Meet the minimum 75% attendance requirement, (2) Complete all continuous internal assessment requirements, (3) Clear all college tuition/exam dues, and (4) Complete official exam registration.",
+      "quick_chips": ["Attendance", "Exam Registration", "Hall Ticket"]
+    },
+    {
+      "intent": "supplementary_exam",
+      "category": "Arrears & Remedial",
+      "patterns": [
+        "when are supplementary exams conducted",
+        "how to apply for supply exam",
+        "remedial examination dates",
+        "supplementary exam fee and registration",
+        "can I write backlog exams with regular exams",
+        "how to clear failed subjects in supplementary exam",
+        "re-exam procedure for failed papers"
+      ],
+      "answer": "Supplementary (Arrear/Remedial) examinations are usually conducted alongside regular semester exams or during vacation periods. Students can register for backlogs by submitting the supplementary exam form and paying the per-subject fee on the examination portal.",
+      "quick_chips": ["Arrears", "Exam Fee", "Revaluation"]
+    },
+    {
+      "intent": "revaluation",
+      "category": "Evaluation & Results",
+      "patterns": [
+        "how can I apply for revaluation",
+        "revaluation procedure and fees",
+        "what is the last date for revaluation application",
+        "paper recheck process",
+        "can I get my answer sheet re-evaluated",
+        "how to apply for paper revaluation online",
+        "revaluation result announcement date"
+      ],
+      "answer": "Students dissatisfied with their results can apply for paper revaluation within 7 to 14 days of result publication. The application must be submitted through the student portal along with the prescribed revaluation fee per subject.",
+      "quick_chips": ["Retotalling", "Results", "Passing Criteria"]
+    },
+    {
+      "intent": "retotalling",
+      "category": "Evaluation & Results",
+      "patterns": [
+        "how to apply for retotalling",
+        "what is retotalling of answer sheet",
+        "can I get a photocopy of my evaluated answer script",
+        "retotalling fee and application deadline",
+        "difference between revaluation and retotalling",
+        "how to request answer paper photocopy"
+      ],
+      "answer": "Retotalling involves re-verifying the sum of marks and checking that all answers were graded. Students can also apply for a photocopy/scanned copy of their evaluated answer script by paying the nominal fee within the specified window following results.",
+      "quick_chips": ["Revaluation", "Results", "Internal Marks"]
+    },
+    {
+      "intent": "results",
+      "category": "Evaluation & Results",
+      "patterns": [
+        "when will the results be published",
+        "how to check semester exam results",
+        "exam result link",
+        "where to view semester grades and SGPA",
+        "when are end sem examination results declared",
+        "how to see my mark statement online",
+        "result date for odd and even semester"
+      ],
+      "answer": "Semester exam results are typically announced within 4 to 6 weeks after the completion of the last examination. Results can be viewed on the official college examination results portal using your Register/Roll Number and Date of Birth.",
+      "quick_chips": ["Revaluation", "Passing Criteria", "Arrears"]
+    },
+    {
+      "intent": "internal_marks",
+      "category": "Internal Assessment",
+      "patterns": [
+        "how are internal marks calculated",
+        "internal assessment marks breakup",
+        "weightage of internal marks vs external marks",
+        "can internal marks be improved",
+        "where to check my internal marks",
+        "what is CIA continuous internal assessment component"
+      ],
+      "answer": "Internal marks (typically 25 to 40% of total course marks) are calculated based on Internal Assessment Tests, assignments, quizzes, seminars, and attendance. Final internal marks are published by departments before semester theory exams begin.",
+      "quick_chips": ["Passing Criteria", "Internal Exam", "Attendance"]
+    },
+    {
+      "intent": "passing_criteria",
+      "category": "Evaluation & Results",
+      "patterns": [
+        "what is the passing criteria for exams",
+        "minimum passing marks in semester exam",
+        "what is the pass mark for end sem",
+        "how many marks are required to pass theory paper",
+        "pass marks for semester exams",
+        "is there separate pass mark for internal and external",
+        "what percentage is needed to clear a subject",
+        "pass percentage for university exams",
+        "marks needed to pass end semester examination"
+      ],
+      "answer": "To pass a course, students generally need at least 40% to 50% marks in the End-Semester Examination and an aggregate of 40% to 50% across combined internal and external assessments, depending on university regulations.",
+      "quick_chips": ["Results", "Arrears", "Internal Marks"]
+    },
+    {
+      "intent": "exam_duration",
+      "category": "Exam Day Logistics",
+      "patterns": [
+        "what is the duration of the exam",
+        "how long is a semester theory exam",
+        "how many hours for internal test",
+        "exam timing and duration in hours",
+        "is the exam 3 hours or 2 hours",
+        "time allowed for theory paper"
+      ],
+      "answer": "End-semester theory examinations are usually 3 hours long (100 or 75 marks papers). Internal assessment tests and practical sessions typically last 1.5 to 2 hours or 3 hours for laboratory examinations.",
+      "quick_chips": ["Reporting Time", "Exam Timetable", "Exam Rules"]
+    },
+    {
+      "intent": "reporting_time",
+      "category": "Exam Day Logistics",
+      "patterns": [
+        "what is the reporting time for exam",
+        "when should I reach the examination hall",
+        "how early to arrive before exam starts",
+        "is late entry allowed in the exam hall",
+        "last entry time inside exam room",
+        "how many minutes before exam should I enter"
+      ],
+      "answer": "Students must report to the examination hall at least 30 minutes before the scheduled start time. Entry into the exam hall closes 15 minutes after the exam commences, and late entrants are generally not permitted.",
+      "quick_chips": ["Exam Hall", "Required Stationery", "Exam Rules"]
+    },
+    {
+      "intent": "required_stationery",
+      "category": "Exam Day Logistics",
+      "patterns": [
+        "what should I bring to the exam hall",
+        "what stationery items are allowed in exam",
+        "can I bring a pencil box or pouch",
+        "is blue or black ballpoint pen compulsory",
+        "things to carry for semester exams",
+        "can I bring water bottle inside exam room"
+      ],
+      "answer": "Students should bring: (1) Printed Hall Ticket, (2) Valid College ID Card, (3) Blue or Black ballpoint pens, (4) Pencils, eraser, and ruler in a transparent pouch. Transparent water bottles are permitted, while borrowing stationery inside the hall is strictly prohibited.",
+      "quick_chips": ["Hall Ticket", "Calculator Rules", "Mobile Restrictions"]
+    },
+    {
+      "intent": "calculator_rules",
+      "category": "Exam Day Logistics",
+      "patterns": [
+        "can I use a calculator",
+        "are scientific calculators allowed in exam",
+        "which calculator models are permitted",
+        "can I use programmable calculator",
+        "is fx-991ES or fx-991EX calculator allowed",
+        "calculator policy for engineering mathematics exams"
+      ],
+      "answer": "Standard non-programmable scientific calculators (e.g., Casio fx-82, fx-991 series) are allowed only for engineering, mathematics, statistics, and science subjects where explicitly specified on the question paper. Programmable and graphing calculators are strictly banned.",
+      "quick_chips": ["Required Stationery", "Mobile Restrictions", "Malpractice"]
+    },
+    {
+      "intent": "mobile_restrictions",
+      "category": "Exam Day Logistics",
+      "patterns": [
+        "are mobile phones allowed in exam hall",
+        "can I bring smart watch to exam",
+        "what electronic gadgets are banned in exam",
+        "is bluetooth device or earphone permitted",
+        "where can I keep my mobile phone during exam",
+        "rules regarding mobile phones and smart devices"
+      ],
+      "answer": "Mobile phones, smartwatches, fitness bands, Bluetooth devices, and any programmable electronics are strictly banned inside the examination hall. Carrying any digital device into the exam hall will be treated as an act of malpractice.",
+      "quick_chips": ["Malpractice", "Exam Rules", "Required Stationery"]
+    },
+    {
+      "intent": "dress_id_requirements",
+      "category": "Exam Day Logistics",
+      "patterns": [
+        "is college ID card mandatory for exam",
+        "what is the dress code for examinations",
+        "can I enter exam hall without ID card",
+        "what to do if I lost my college ID card before exam",
+        "exam uniform and identification rules",
+        "do I need to wear formal uniform for exam"
+      ],
+      "answer": "Wearing the official College ID Card and adhering to the formal college dress code is mandatory for all examination sessions. If your ID is lost, obtain a temporary identity authorization slip from your department head or Exam Cell.",
+      "quick_chips": ["Hall Ticket", "Duplicate Docs", "Exam Rules"]
+    },
+    {
+      "intent": "absence",
+      "category": "Attendance & Leave",
+      "patterns": [
+        "what happens if I miss an exam",
+        "what if I am absent for semester exam",
+        "will I get another chance if I miss an exam",
+        "consequences of being absent in theory exam",
+        "can I write re-exam if I miss regular exam",
+        "is absent marked as fail or arrear"
+      ],
+      "answer": "If you are absent for an examination, you will be marked as 'Absent' (AB) and it will be treated as an arrear. You will need to appear for that paper during the subsequent supplementary/arrear examinations.",
+      "quick_chips": ["Medical Leave", "Supplementary Exam", "Arrears"]
+    },
+    {
+      "intent": "medical_leave",
+      "category": "Attendance & Leave",
+      "patterns": [
+        "can I get exemption for medical emergency during exam",
+        "how to submit medical certificate for missed exam",
+        "medical leave rules for semester examinations",
+        "what if I am hospitalized during exam dates",
+        "procedure to claim medical condonation for exams",
+        "illness during exam period"
+      ],
+      "answer": "In cases of severe illness or hospitalization, submit a formal medical certificate and leave application endorsed by a registered medical practitioner to the Head of Department and Examination Cell within 3 days of the missed exam for record and condonation review.",
+      "quick_chips": ["Absence", "Attendance", "Exam Cell Contact"]
+    },
+    {
+      "intent": "arrears",
+      "category": "Arrears & Remedial",
+      "patterns": [
+        "how to clear arrears",
+        "how many attempts to clear backlogs",
+        "what is the maximum duration to complete degree with arrears",
+        "rules for clearing failed subjects",
+        "do arrears affect campus placements",
+        "how do backlogs work in semester system"
+      ],
+      "answer": "Arrears (backlogs) can be cleared by registering and appearing for supplementary/arrear exams held in upcoming semesters. As per university regulations, students have a maximum permissible period (usually degree duration + 2 to 3 years) to clear all courses.",
+      "quick_chips": ["Supplementary Exam", "Passing Criteria", "Results"]
+    },
+    {
+      "intent": "practical_exam",
+      "category": "Lab & Practical",
+      "patterns": [
+        "when are practical exams conducted",
+        "laboratory exam schedule",
+        "how are lab practical exams evaluated",
+        "is external examiner present for lab exams",
+        "do I need to submit lab record notebook for practical exam",
+        "practical exam marking scheme"
+      ],
+      "answer": "Practical/Laboratory examinations are typically scheduled 1 to 2 weeks before the commencement of theory examinations. Students must submit their certified Laboratory Record Notebook and undergo a viva-voce evaluated jointly by internal and external examiners.",
+      "quick_chips": ["Project Viva", "Internal Marks", "Exam Schedule"]
+    },
+    {
+      "intent": "project_viva",
+      "category": "Lab & Practical",
+      "patterns": [
+        "when is project viva voce examination",
+        "how is mini project or final year project evaluated",
+        "project presentation and viva guidelines",
+        "what questions are asked in project viva",
+        "is project report submission compulsory before viva",
+        "project review schedule"
+      ],
+      "answer": "Project Viva-Voce examinations are held towards the end of the final semester. Students present their project work with slide decks, demonstrate working software/hardware prototypes, and submit signed project reports to the examination panel.",
+      "quick_chips": ["Practical Exam", "Passing Criteria", "Results"]
+    },
+    {
+      "intent": "malpractice",
+      "category": "Eligibility & Rules",
+      "patterns": [
+        "what is exam malpractice",
+        "penalties for cheating or malpractice in exams",
+        "what happens if caught with chits in exam",
+        "disciplinary action for copying in semester exam",
+        "malpractice committee investigation process",
+        "punishment for using mobile phone in exam hall"
+      ],
+      "answer": "Possession of unauthorized materials (chits, notes, mobile phones), copying, or impersonation constitutes malpractice. Cases are investigated by the Examination Malpractice Committee, leading to penalties ranging from paper cancellation to semester debarment.",
+      "quick_chips": ["Mobile Restrictions", "Exam Rules", "Exam Cell Contact"]
+    },
+    {
+      "intent": "scribe_assistance",
+      "category": "Special Assistance",
+      "patterns": [
+        "how to request a scribe for exam",
+        "extra time facility for differently abled students",
+        "scribe assistance rules and medical certificate",
+        "can I get compensatory extra time in exams",
+        "eligibility for scribe in college examinations"
+      ],
+      "answer": "Eligible differently-abled students or students with temporary physical injuries can apply for a scribe and compensatory extra time (typically 20 minutes per hour) by submitting relevant medical board certificates to the Controller of Examinations at least 15 days in advance.",
+      "quick_chips": ["Exam Cell Contact", "Exam Rules", "Medical Leave"]
+    },
+    {
+      "intent": "exam_cell_contact",
+      "category": "Contact & Support",
+      "patterns": [
+        "how to contact the examination cell",
+        "where is the controller of examinations office",
+        "exam cell email address and helpline number",
+        "whom to contact for exam related queries",
+        "office hours of examination branch",
+        "exam cell phone number"
+      ],
+      "answer": "The Examination Cell / Office of the Controller of Examinations (CoE) is located in the Administrative Block (Ground/1st Floor). Office hours are Monday to Friday, 9:00 AM to 5:00 PM. You can also reach them via the official college student support email.",
+      "quick_chips": ["Hall Ticket", "Revaluation", "Results"]
+    },
+    {
+      "intent": "grade_improvement",
+      "category": "Evaluation & Results",
+      "patterns": [
+        "can I write exam to improve my grades",
+        "how to apply for grade betterment exam",
+        "improvement exam rules and fees",
+        "is there improvement exam for passed subjects",
+        "can I improve my CGPA by re-writing papers"
+      ],
+      "answer": "Grade improvement / betterment examinations allow students who have passed a subject to re-appear to improve their grade, subject to college regulations. Check with the Controller of Examinations for eligible semesters and criteria.",
+      "quick_chips": ["Results", "Revaluation", "Passing Criteria"]
+    },
+    {
+      "intent": "duplicate_docs",
+      "category": "Admit Card & Registration",
+      "patterns": [
+        "how to get a duplicate hall ticket",
+        "what if I lost my hall ticket on exam day",
+        "how to apply for duplicate mark sheet",
+        "lost grade card replacement process",
+        "how to get duplicate official transcript"
+      ],
+      "answer": "If you lose your hall ticket, report to the Examination Cell with a passport-size photograph and college ID card to obtain an emergency duplicate hall ticket. For duplicate mark sheets or transcripts, submit a formal application and fee at the CoE office.",
+      "quick_chips": ["Hall Ticket", "Dress ID Requirements", "Exam Cell Contact"]
+    }
+  ]
+}
